@@ -58,12 +58,18 @@ if (imc > 30 || imc < 19) {
     let obraSocialNombre = prompt("Ingrese el nombre de su obra social");
     let obraSocialNumero = prompt("Ingrese el número de su obra social");
     let dia = prompt("Ingrese el día que le gustaría asistir (dd/mm)");
+    const min = 8;
+    const max = 21;
+    const min1 = 0;
+    const max1 = 59;
+    const hora = Math.floor(Math.random() * (max - min + 1)) + min;
+    const hora2 = Math.floor(Math.random() * (max1 - min1 + 1)) + min1;
 
     nombreElement.textContent = `Gracias ${nombre} sus datos fueron tomados`;
     dniElement.textContent = `Su DNI: ${dni}`;
     obraSocialNombreElement.textContent = `Su obra social: ${obraSocialNombre}`;
     obraSocialNumeroElement.textContent = `El número de la obra social: ${obraSocialNumero}`;
-    diaElement.textContent = `Su turno es el día: ${dia}`;
+    diaElement.textContent = `Su turno es el día: ${dia}/2022 a las ${hora}:${hora2}hs`;
   } else {
     respuesta.innerHTML = "Gracias por elegirnos";
   }
