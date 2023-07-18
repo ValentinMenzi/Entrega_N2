@@ -1,0 +1,97 @@
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Estilos para el título */
+  h1 {
+    color: #000000;
+    text-align: center;
+    margin-top: 0;
+    padding: 20px 0;
+    font-size: 400%;
+    /* Estilos personalizados */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilos para la barra de tareas */
+  .navbar {
+    background-color: #00c3ff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    /* Estilos personalizados */
+    background-image: linear-gradient(to right, #00c3ff, #0086ad);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar a {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    /* Estilos personalizados */
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #ffd700; /* Cambia el color al pasar el mouse */
+  }
+  
+  /* Estilos para el formulario */
+  .formulario {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para los elementos de datos */
+  .datos {
+    font-weight: bold;
+    color: #333;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  /* Estilos generales para todos los elementos de clase */
+  div {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para el botón "Aceptar" */
+  button {
+    display: block;
+    margin:  auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  /* Estilos para alinear el contenido de resumen y respuesta al centro */
+  .resumen,
+  .respuesta {
+    text-align: center;
+    padding-top: 1%;
+  }
+
+
+  
