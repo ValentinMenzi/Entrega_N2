@@ -185,6 +185,13 @@ function mostrarConfirmacion() {
 
 // Función para borrar los datos de sesión y limpiar la interfaz
 function borrarDatosSesion() {
+  Toastify({
+    text: 'Los Datos fueron borrados con exito!',
+    duration: 6000, 
+    gravity: 'top', 
+    position: 'right', 
+  }).showToast();
+
   sessionStorage.removeItem("nombre");
   sessionStorage.removeItem("dni");
   sessionStorage.removeItem("obraSocialNombre");
@@ -201,7 +208,8 @@ function borrarDatosSesion() {
   respuesta.textContent = "";
 }
 
-// Obtener los datos de sesión al cargar la página
+
+
 window.addEventListener("load", function() {
   const nombre = sessionStorage.getItem("nombre");
   const dni = sessionStorage.getItem("dni");
