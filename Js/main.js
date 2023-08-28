@@ -19,11 +19,32 @@ const doctores = [
   "Dr. Alejandro López"
 ];
 
-// Función para seleccionar un doctor aleatorio del array
 function seleccionarDoctorAleatorio() {
-  const indiceAleatorio = Math.floor(Math.random() * doctores.length);
-  return doctores[indiceAleatorio];
+  const randomIndex = Math.floor(Math.random() * doctoresConProfesion.length);
+  return doctoresConProfesion[randomIndex];
 }
+
+const doctoresConProfesion = doctores.map(doctor => {
+  return doctor + " - Médico";
+});
+
+const saludar = nombre => {
+  return `¡Hola, ${nombre}! Bienvenido a nuestro centro médico.`;
+};
+
+const nombreUsuario = "Valentín";
+const mensajeSaludo = saludar(nombreUsuario);
+
+console.log(mensajeSaludo);
+
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Hubo un error:', error);
+  });
 
 const resumen = document.querySelector(".resumen");
 const respuesta = document.querySelector(".respuesta");
@@ -32,12 +53,30 @@ const obraSocialNombreElement = document.querySelector(".obraSocialNombre");
 const obraSocialNumeroElement = document.querySelector(".obraSocialNumero");
 const dniElement = document.querySelector(".dni");
 const diaElement = document.querySelector(".dia");
-
 const formulario = document.getElementById("formulario");
+
 formulario.addEventListener("submit", obtenerDatos);
+
+function validarFormulario() {
+  const generoInput = document.getElementById("genero");
+  const edadInput = document.getElementById("edad");
+  const alturaInput = document.getElementById("altura");
+  const pesoInput = document.getElementById("peso");
+
+  if (generoInput.value.trim() === "" || isNaN(edadInput.value) || isNaN(alturaInput.value) || isNaN(pesoInput.value)) {
+    alert("Por favor, complete todos los campos correctamente.");
+    return false;
+  }
+
+  return true;
+}
 
 function obtenerDatos(event) {
   event.preventDefault();
+
+  if (!validarFormulario()) {
+    return;
+  }
 
   Usuario.genero = document.getElementById("genero").value;
   Usuario.edad = parseFloat(document.getElementById("edad").value);
@@ -129,7 +168,9 @@ function mostrarFormulario() {
 
   const botonConfirmar = document.createElement("button");
   botonConfirmar.textContent = "Confirmar";
-  botonConfirmar.addEventListener("click", mostrarConfirmacion);
+  botonConfirmar.addEventListener("click", function() {
+    mostrarConfirmacion();
+  });
 
   respuesta.appendChild(nombreLabel);
   respuesta.appendChild(nombreInput);
@@ -172,7 +213,6 @@ function mostrarConfirmacion() {
     diaElement.textContent = `Su turno es el día: ${dia}/2023 con el doctor ${doctor}`;
     respuesta.textContent = "Gracias por elegirnos";
 
-    // Guardar los datos en sessionStorage
     sessionStorage.setItem("nombre", nombre);
     sessionStorage.setItem("dni", dni);
     sessionStorage.setItem("obraSocialNombre", obraSocialNombre);
@@ -183,7 +223,6 @@ function mostrarConfirmacion() {
   }
 }
 
-// Función para borrar los datos de sesión y limpiar la interfaz
 function borrarDatosSesion() {
   Toastify({
     text: 'Los Datos fueron borrados con exito!',
@@ -207,8 +246,6 @@ function borrarDatosSesion() {
   resumen.textContent = "";
   respuesta.textContent = "";
 }
-
-
 
 window.addEventListener("load", function() {
   const nombre = sessionStorage.getItem("nombre");
